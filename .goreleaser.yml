@@ -19,17 +19,16 @@ builds:
     goarch:
       - amd64
       - arm64
+    # Skip windows arm64 until toolchain confirmed
+    ignores:
+      - goos: windows
+        goarch: arm64
 
 archives:
   - id: helm-gcs
     builds:
       - helm-gcs
     format: tar.gz
-    # Replicates your previous "replacements":
-    # - amd64 -> x86_64
-    # - darwin -> Darwin
-    # - linux  -> Linux
-    # (windows stays "windows" as in your original)
     name_template: "{{ .Binary }}_{{ .Version }}_{{- if eq .Os \"darwin\" -}}Darwin{{- else if eq .Os \"linux\" -}}Linux{{- else -}}{{ .Os }}{{- end -}}_{{- if eq .Arch \"amd64\" -}}x86_64{{- else -}}{{ .Arch }}{{- end -}}"
 
 checksum:
