@@ -29,7 +29,7 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: latest
+          version: v1.65.0
       - name: Series of tests
         run: |
           GO_FILES=$(find . -iname '*.go' -type f) # All the .go files, excluding vendor/
