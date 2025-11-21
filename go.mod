@@ -2,7 +2,7 @@ module github.com/MarcoRezkallah/helm-gcs
 
 go 1.24.0
 
-toolchain go1.25.1
+toolchain go1.24.10
 
 require (
 	cloud.google.com/go/storage v1.39.1
