@@ -1,6 +1,11 @@
 # Dependabot configuration for automated dependency updates
 # This configuration enables Dependabot to automatically create pull requests
 # for security updates and version updates
+#
+# Note: This repository also has renovate.json configured. If you prefer to use
+# only one tool, consider disabling Renovate or removing this file. Both tools
+# serve similar purposes but Dependabot is GitHub's native solution with better
+# integration for security alerts.
 
 version: 2
 updates:
