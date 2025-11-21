@@ -29,7 +29,8 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.65.0
+          version: latest
+          install-mode: goinstall
       - name: Series of tests
         run: |
           GO_FILES=$(find . -iname '*.go' -type f) # All the .go files, excluding vendor/
