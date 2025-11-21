@@ -1,0 +1,49 @@
+# Dependabot configuration for automated dependency updates
+# This configuration enables Dependabot to automatically create pull requests
+# for security updates and version updates
+
+version: 2
+updates:
+  # Enable updates for Go modules
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    # Group all Go dependency updates together for easier review
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
+    # Allow up to 10 open pull requests for Go dependencies
+    open-pull-requests-limit: 10
+    # Add labels to PRs for easy filtering
+    labels:
+      - "dependencies"
+      - "go"
+    # Commit message preferences
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+
+  # Enable updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    # Group all GitHub Actions updates together
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    # Allow up to 5 open pull requests for GitHub Actions
+    open-pull-requests-limit: 5
+    # Add labels to PRs for easy filtering
+    labels:
+      - "dependencies"
+      - "github-actions"
+    # Commit message preferences
+    commit-message:
+      prefix: "chore(actions)"
+      include: "scope"
