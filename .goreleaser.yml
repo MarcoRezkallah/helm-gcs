@@ -20,15 +20,12 @@ builds:
       - amd64
       - arm64
     # Skip windows arm64 until toolchain confirmed
-    ignores:
+    ignore:
       - goos: windows
         goarch: arm64
 
 archives:
   - id: helm-gcs
-    builds:
-      - helm-gcs
-    format: tar.gz
     name_template: "{{ .Binary }}_{{ .Version }}_{{- if eq .Os \"darwin\" -}}Darwin{{- else if eq .Os \"linux\" -}}Linux{{- else -}}{{ .Os }}{{- end -}}_{{- if eq .Arch \"amd64\" -}}x86_64{{- else -}}{{ .Arch }}{{- end -}}"
 
 checksum:
